@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSC44NDPLQ"></script>
@@ -11,8 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TODO: Update the title -->
-    <title>Agentic Workflows Workshop</title>
+    <title>代理工作流工作坊</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="alternate" hreflang="en" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/">
@@ -20,48 +19,44 @@
     <link rel="alternate" hreflang="es" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/es/">
     <link rel="alternate" hreflang="zh" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/zh/">
     <link rel="alternate" hreflang="x-default" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="light-theme.css">
-    <script src="theme-toggle.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <script src="../theme-toggle.js"></script>
 </head>
 <body>
     <div style="position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:0.5rem;align-items:center;">
         <div class="locale-picker" id="localePicker">
-            <button type="button" class="locale-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">🌐</button>
-            <ul role="listbox" aria-label="Language">
-                <li role="option" data-locale="en" aria-selected="true" class="active">🇬🇧 English</li>
+            <button type="button" class="locale-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="选择语言">🌐</button>
+            <ul role="listbox" aria-label="语言">
+                <li role="option" data-locale="en" aria-selected="false">🇬🇧 English</li>
                 <li role="option" data-locale="es" aria-selected="false">🇪🇸 Español</li>
                 <li role="option" data-locale="pt-BR" aria-selected="false">🇧🇷 Português (Brasil)</li>
-                <li role="option" data-locale="zh" aria-selected="false">🇨🇳 中文</li>
+                <li role="option" data-locale="zh" aria-selected="true" class="active">🇨🇳 中文</li>
             </ul>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+        <button class="theme-toggle" onclick="toggleTheme()">☀️ 亮色</button>
     </div>
     <section class="hero">
         <div class="container">
-            <!-- TODO: Update badge, title, subtitle -->
-            <div class="hero-badge">🤖 Hands-On Workshop</div>
-            <h1>Agentic Workflows with GitHub Copilot</h1>
-            <p class="hero-subtitle">Learn to build and deploy agentic workflows using <code>gh aw</code>. Automate daily digests, pull Hacker News stories as GitHub issues, and wire up a ChatOps slash command — all from the command line.</p>
+            <div class="hero-badge">🤖 实践工作坊</div>
+            <h1>使用 GitHub Copilot 的代理工作流</h1>
+            <p class="hero-subtitle">学习使用 <code>gh aw</code> 构建和部署代理工作流。自动化日常摘要、将黑客新闻故事作为 GitHub 议题拉取，并连接一个 ChatOps 斜杠命令——所有这一切都在命令行完成。</p>
             <div class="hero-cta">
-                <a href="step.html?step=readme" class="btn btn-primary">🚀 Start Workshop</a>
-                <!-- TODO: Update the GitHub repo URL -->
-                <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" class="btn btn-secondary" target="_blank">⭐ GitHub Repo</a>
+                <a href="step.html?step=readme" class="btn btn-primary">🚀 启动工作坊</a>
+                <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" class="btn btn-secondary" target="_blank">⭐ GitHub 仓库</a>
             </div>
             <div class="stats">
                 <div class="stat">
-                    <!-- TODO: Update duration -->
-                    <div class="stat-value">~75min</div>
-                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">~75分钟</div>
+                    <div class="stat-label">时长</div>
                 </div>
                 <div class="stat">
-                    <!-- TODO: Update exercise count -->
                     <div class="stat-value">3</div>
-                    <div class="stat-label">Exercises</div>
+                    <div class="stat-label">练习</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">1</div>
-                    <div class="stat-label">Workshop</div>
+                    <div class="stat-label">工作坊</div>
                 </div>
             </div>
         </div>
@@ -69,28 +64,27 @@
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title">What You'll Learn</h2>
-            <!-- TODO: Update feature cards -->
+            <h2 class="section-title">您将学到什么</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Quick Start</h3>
-                    <p>Bootstrap the <code>gh aw</code> CLI extension and initialise Agentic Workflows in your repository in minutes.</p>
+                    <h3>快速开始</h3>
+                    <p>启动 <code>gh aw</code> CLI 扩展，并在几分钟内在您的仓库中配置代理工作流。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📰</div>
-                    <h3>Automated Digests</h3>
-                    <p>Create scheduled workflows that surface top Hacker News stories as formatted GitHub issues every morning.</p>
+                    <h3>自动化摘要</h3>
+                    <p>创建计划工作流，突出显示顶级黑客新闻故事，作为每天早上 GitHub 中格式化的议题。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💬</div>
-                    <h3>ChatOps Slash Commands</h3>
-                    <p>Trigger agentic workflows directly from issue comments using slash commands — no context-switching required.</p>
+                    <h3>ChatOps 斜杠命令</h3>
+                    <p>使用斜杠命令直接从议题评论触发代理工作流——无需改变背景。</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3>Sentiment Analysis</h3>
-                    <p>Use AI to analyse the sentiment of Hacker News story comments and get a structured breakdown posted back to GitHub.</p>
+                    <h3>情感分析</h3>
+                    <p>使用 AI 分析黑客新闻故事评论的情感，获得结构化分解发布回 GitHub。</p>
                 </div>
             </div>
         </div>
@@ -98,56 +92,55 @@
 
     <section class="workshop">
         <div class="container">
-            <h2 class="section-title">Workshop Parts</h2>
-            <!-- TODO: Update workshop steps to match your workshop/ markdown files -->
+            <h2 class="section-title">工作坊部分</h2>
             <div class="parts-list">
                 <a href="step.html?step=readme" class="part-card">
                     <div class="part-number">📚</div>
                     <div class="part-content">
-                        <h3>Workshop Overview</h3>
-                        <p>Introduction and learning objectives</p>
+                        <h3>工作坊概览</h3>
+                        <p>介绍和学习目标</p>
                     </div>
-                    <span class="part-time">5 min</span>
+                    <span class="part-time">5 分钟</span>
                 </a>
                 <a href="step.html?step=00-prereqs" class="part-card">
                     <div class="part-number">00</div>
                     <div class="part-content">
-                        <h3>Prerequisites</h3>
-                        <p>Install and configure gh aw</p>
+                        <h3>先决条件</h3>
+                        <p>安装和配置 gh aw</p>
                     </div>
-                    <span class="part-time">10 min</span>
+                    <span class="part-time">10 分钟</span>
                 </a>
                 <a href="step.html?step=01-quick-start" class="part-card">
                     <div class="part-number">01</div>
                     <div class="part-content">
-                        <h3>Quick Start</h3>
-                        <p>gh aw init + daily issue/PR digest</p>
+                        <h3>快速开始</h3>
+                        <p>gh aw init + 日常议题/PR 摘要</p>
                     </div>
-                    <span class="part-time">20 min</span>
+                    <span class="part-time">20 分钟</span>
                 </a>
                 <a href="step.html?step=02-hn-digest" class="part-card">
                     <div class="part-number">02</div>
                     <div class="part-content">
-                        <h3>Hacker News Digest</h3>
-                        <p>Automated daily HN stories as GitHub issues</p>
+                        <h3>黑客新闻摘要</h3>
+                        <p>HN 自动化每日故事作为 GitHub 议题</p>
                     </div>
-                    <span class="part-time">20 min</span>
+                    <span class="part-time">20 分钟</span>
                 </a>
                 <a href="step.html?step=03-chatops" class="part-card">
                     <div class="part-number">03</div>
                     <div class="part-content">
-                        <h3>ChatOps Sentiment Analysis</h3>
-                        <p>/hn-sentiment slash command via ChatOps pattern</p>
+                        <h3>ChatOps 情感分析</h3>
+                        <p>通过 ChatOps 模式的 /hn-sentiment 斜杠命令</p>
                     </div>
-                    <span class="part-time">20 min</span>
+                    <span class="part-time">20 分钟</span>
                 </a>
                 <a href="step.html?step=04-review" class="part-card">
                     <div class="part-number">04</div>
                     <div class="part-content">
-                        <h3>Review & Next Steps</h3>
-                        <p>Recap and continue your learning</p>
+                        <h3>回顾和后续步骤</h3>
+                        <p>回顾和继续学习</p>
                     </div>
-                    <span class="part-time">5 min</span>
+                    <span class="part-time">5 分钟</span>
                 </a>
             </div>
         </div>
@@ -155,12 +148,11 @@
 
     <section class="prereqs">
         <div class="container">
-            <h2 class="section-title">Prerequisites</h2>
-            <!-- TODO: Update prerequisites -->
+            <h2 class="section-title">先决条件</h2>
             <div class="prereqs-grid">
                 <div class="prereq-item">
                     <span class="prereq-check">✓</span>
-                    <span>GitHub Account + Copilot</span>
+                    <span>GitHub 账户 + Copilot</span>
                 </div>
                 <div class="prereq-item">
                     <span class="prereq-check">✓</span>
@@ -168,7 +160,7 @@
                 </div>
                 <div class="prereq-item">
                     <span class="prereq-check">✓</span>
-                    <span>gh aw extension</span>
+                    <span>gh aw 扩展</span>
                 </div>
                 <div class="prereq-item">
                     <span class="prereq-check">✓</span>
@@ -181,17 +173,17 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <!-- TODO: Update footer links -->
-                <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" target="_blank">GitHub Repository</a>
-                <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank">Copilot Docs</a>
+                <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" target="_blank">GitHub 仓库</a>
+                <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank">Copilot 文档</a>
                 <a href="https://github.com/github/awesome-copilot" target="_blank">Awesome Copilot</a>
             </div>
-            <p class="footer-credit">Built with 💜 by the GitHub Copilot Team</p>
+            <p class="footer-credit">由 GitHub Copilot 团队 💜 打造</p>
         </div>
     </footer>
+
     <script>
-    (function(){|zh
-      var match=location.pathname.match(/\/(pt_BR|es)\//);
+    (function(){
+      var match=location.pathname.match(/\/(pt_BR|es|zh)\//);
       var locale=match?match[1]:'en';
       var picker=document.getElementById('localePicker');
       if(!picker)return;
@@ -209,13 +201,10 @@
       list.querySelectorAll('li').forEach(function(li){
         li.addEventListener('click',function(e){
           e.stopPropagation();
-          var t=li.dataset.locale==='pt-BR'?'pt_BR':li.dataset.locale;
-          if(t===locale){close();return;}
-          var p=location.pathname;
-          if(locale!=='en')p=p.replace(new RegExp('/'+locale+'/'),'/');;
-          if(t!=='en'){var base=p.replace(/\/index\.html$/,'/');if(!base.endsWith('/'))base+='/';p=base+t+'/';}
-          localStorage.setItem('preferred-locale',t);
-          window.location.href=p;
+          var newLocale=li.dataset.locale;
+          var path='/agentic-workflows-workshop/';
+          if(newLocale!=='en'){path+=(newLocale==='pt-BR'?'pt_BR':newLocale)+'/';}
+          window.location.href=path;
         });
       });
     })();

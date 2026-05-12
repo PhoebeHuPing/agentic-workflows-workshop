@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSC44NDPLQ"></script>
@@ -11,8 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TODO: Update the title -->
-    <title>Agentic Workflows Workshop</title>
+    <title>代理工作流工作坊</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -22,31 +21,30 @@
     <link rel="alternate" hreflang="es" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/es/">
     <link rel="alternate" hreflang="zh" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/zh/">
     <link rel="alternate" hreflang="x-default" href="https://copilot-dev-days.github.io/agentic-workflows-workshop/">
-    <link rel="stylesheet" href="step.css">
-    <link rel="stylesheet" href="light-theme.css">
-    <script src="theme-toggle.js"></script>
+    <link rel="stylesheet" href="../step.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <script src="../theme-toggle.js"></script>
 </head>
 <body>
     <header class="header">
         <div class="header-content">
             <a href="index.html" class="header-brand">
                 <span class="header-icon">🚀</span>
-                <!-- TODO: Update header title -->
-                <span class="header-title">Agentic Workflows Workshop</span>
+                <span class="header-title">代理工作流工作坊</span>
             </a>
             <div class="header-nav">
                 <div class="locale-picker" id="localePicker">
-                    <button type="button" class="locale-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">🌐</button>
-                    <ul role="listbox" aria-label="Language">
-                        <li role="option" data-locale="en" aria-selected="true" class="active">🇬🇧 English</li>
+                    <button type="button" class="locale-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="选择语言">🌐</button>
+                    <ul role="listbox" aria-label="语言">
+                        <li role="option" data-locale="en" aria-selected="false">🇬🇧 English</li>
                         <li role="option" data-locale="es" aria-selected="false">🇪🇸 Español</li>
                         <li role="option" data-locale="pt-BR" aria-selected="false">🇧🇷 Português (Brasil)</li>
-                        <li role="option" data-locale="zh" aria-selected="false">🇨🇳 中文</li>
+                        <li role="option" data-locale="zh" aria-selected="true" class="active">🇨🇳 中文</li>
                     </ul>
                 </div>
-                <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
-                <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>← Prev</button>
-                <button class="nav-btn" id="nextBtn" onclick="navigate(1)">Next →</button>
+                <button class="theme-toggle" onclick="toggleTheme()">☀️ 亮色</button>
+                <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>← 上一步</button>
+                <button class="nav-btn" id="nextBtn" onclick="navigate(1)">下一步 →</button>
             </div>
         </div>
     </header>
@@ -54,7 +52,7 @@
     <div class="layout">
         <aside class="sidebar">
             <div class="sidebar-section">
-                <div class="sidebar-title">Workshop Steps</div>
+                <div class="sidebar-title">工作坊步骤</div>
                 <nav id="stepNav"></nav>
             </div>
         </aside>
@@ -62,7 +60,7 @@
         <main class="main">
             <div class="content">
                 <div id="markdownContent">
-                    <div class="loading">Loading content</div>
+                    <div class="loading">加载内容中</div>
                 </div>
                 <div class="nav-footer" id="navFooter"></div>
             </div>
@@ -70,19 +68,17 @@
     </div>
 
     <script>
-        // TODO: Update the steps array to match your workshop/ markdown files
         const steps = [
-            { id: 'readme', file: 'workshop/README.md', title: 'Workshop Overview', number: '📚' },
-            { id: '00-prereqs', file: 'workshop/00-prereqs.md', title: 'Prerequisites', number: '00' },
-            { id: '01-quick-start', file: 'workshop/01-first-exercise.md', title: 'Quick Start', number: '01' },
-            { id: '02-hn-digest', file: 'workshop/02-second-exercise.md', title: 'Hacker News Digest', number: '02' },
-            { id: '03-chatops', file: 'workshop/03-chatops-sentiment.md', title: 'ChatOps Sentiment Analysis', number: '03' },
-            { id: '04-review', file: 'workshop/04-review.md', title: 'Review & Next Steps', number: '04' },
+            { id: 'readme', file: 'workshop/zh/README.md', title: '工作坊概览', number: '📚' },
+            { id: '00-prereqs', file: 'workshop/zh/00-prereqs.md', title: '先决条件', number: '00' },
+            { id: '01-quick-start', file: 'workshop/zh/01-first-exercise.md', title: '快速开始', number: '01' },
+            { id: '02-hn-digest', file: 'workshop/zh/02-second-exercise.md', title: '黑客新闻摘要', number: '02' },
+            { id: '03-chatops', file: 'workshop/zh/03-chatops-sentiment.md', title: 'ChatOps 情感分析', number: '03' },
+            { id: '04-review', file: 'workshop/zh/04-review.md', title: '回顾和后续步骤', number: '04' },
         ];
 
-        // TODO: Update the GitHub org/repo name
         const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-        const GITHUB_RAW_BASE = isLocal ? '../' : 'https://raw.githubusercontent.com/copilot-dev-days/agentic-workflows-workshop/main/';
+        const GITHUB_RAW_BASE = isLocal ? '../../' : 'https://raw.githubusercontent.com/copilot-dev-days/agentic-workflows-workshop/main/';
 
         let currentIndex = 0;
 
@@ -111,8 +107,8 @@
             const prev = currentIndex > 0 ? steps[currentIndex - 1] : null;
             const next = currentIndex < steps.length - 1 ? steps[currentIndex + 1] : null;
             footer.innerHTML = `
-                <a href="${prev ? '?step=' + prev.id : '#'}" class="nav-footer-btn ${!prev ? 'disabled' : ''}">← ${prev ? prev.title : 'Previous'}</a>
-                <a href="${next ? '?step=' + next.id : '#'}" class="nav-footer-btn ${!next ? 'disabled' : ''}">${next ? next.title : 'Next'} →</a>
+                <a href="${prev ? '?step=' + prev.id : '#'}" class="nav-footer-btn ${!prev ? 'disabled' : ''}">← ${prev ? prev.title : '上一步'}</a>
+                <a href="${next ? '?step=' + next.id : '#'}" class="nav-footer-btn ${!next ? 'disabled' : ''}">${next ? next.title : '下一步'} →</a>
             `;
         }
 
@@ -124,7 +120,6 @@
         }
 
         function processMarkdown(md) {
-            // Handle GitHub alerts: [!NOTE], [!TIP], [!IMPORTANT], [!WARNING], [!CAUTION]
             md = md.replace(/> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*\n((?:> .*(?:\n|$))*)/gi, function(match, type, content) {
                 const cleanContent = content.replace(/^> ?/gm, '').trim();
                 const icons = { NOTE: 'ℹ️', TIP: '💡', IMPORTANT: '❗', WARNING: '⚠️', CAUTION: '🔴' };
@@ -134,10 +129,18 @@
                 return `<blockquote style="border-left-color: ${color};"><p style="color: ${color};">${icon} ${type.toUpperCase()}</p><p>${cleanContent}</p></blockquote>\n`;
             });
 
-            // Convert internal .md links to step.html links
-            md = md.replace(/\[([^\]]+)\]\((?:\.\/)?workshop\/(\d+)-([^)]+)\.md\)/g, function(match, text, num, slug) {
+            md = md.replace(/\[([^\]]+)\]\((?:\.\/)?workshop\/zh\/(\d+)-([^)]+)\.md\)/g, function(match, text, num, slug) {
                 const stepId = num.replace(/^0+/, '0') + '-' + slug;
-                const found = steps.find(s => s.id === stepId || s.file === `workshop/${num}-${slug}.md`);
+                const found = steps.find(s => s.id === stepId || s.file === `workshop/zh/${num}-${slug}.md`);
+                if (found) {
+                    return `[${text}](step.html?step=${found.id})`;
+                }
+                return match;
+            });
+
+            md = md.replace(/\[([^\]]+)\]\(\.\/(\d+)-([^)]+)\.md\)/g, function(match, text, num, slug) {
+                const stepId = num.replace(/^0+/, '0') + '-' + slug;
+                const found = steps.find(s => s.id === stepId || s.file.includes(`${num}-${slug}.md`));
                 if (found) {
                     return `[${text}](step.html?step=${found.id})`;
                 }
@@ -150,17 +153,17 @@
         async function loadStep(stepId) {
             const step = steps.find(s => s.id === stepId);
             if (!step) {
-                document.getElementById('markdownContent').innerHTML = '<p>Step not found.</p>';
+                document.getElementById('markdownContent').innerHTML = '<p>步骤未找到。</p>';
                 return;
             }
             currentIndex = steps.indexOf(step);
             buildSidebar();
             updateNavButtons();
             buildFooterNav();
-            document.title = `${step.title} - Workshop`;
+            document.title = `${step.title} - 工作坊`;
 
             const contentEl = document.getElementById('markdownContent');
-            contentEl.innerHTML = '<div class="loading">Loading content</div>';
+            contentEl.innerHTML = '<div class="loading">加载内容中</div>';
 
             try {
                 const url = GITHUB_RAW_BASE + step.file;
@@ -168,7 +171,6 @@
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 let md = await res.text();
                 md = processMarkdown(md);
-                // Fix relative image paths to resolve against the markdown file's directory
                 const stepDir = step.file.substring(0, step.file.lastIndexOf('/') + 1);
                 md = md.replace(/!\[([^\]]*)\]\((?!https?:\/\/|\/\/)([^)]+)\)/g, (match, alt, path) => {
                     const cleanPath = path.replace(/^\.\//, '');
@@ -176,7 +178,6 @@
                 });
                 contentEl.innerHTML = `<div class="markdown">${marked.parse(md)}</div>`;
 
-                // Fire confetti on last step
                 if (currentIndex === steps.length - 1 && typeof confetti === 'function') {
                     confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
                 }
@@ -184,21 +185,20 @@
                 contentEl.innerHTML = `
                     <div class="markdown">
                         <h1>${step.title}</h1>
-                        <p>Could not load content. Please check the <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" target="_blank">GitHub repository</a> directly.</p>
-                        <p style="color: var(--text-secondary); font-size: 0.875rem;">Error: ${err.message}</p>
+                        <p>无法加载内容。请查看 <a href="https://github.com/copilot-dev-days/agentic-workflows-workshop" target="_blank">GitHub 仓库</a>。</p>
+                        <p style="color: var(--text-secondary); font-size: 0.875rem;">错误：${err.message}</p>
                     </div>`;
             }
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') navigate(-1);
             if (e.key === 'ArrowRight') navigate(1);
         });
 
-        // Initialize
         loadStep(getStepFromURL());
     </script>
+
     <script>
     (function(){
       var match=location.pathname.match(/\/(pt_BR|es|zh)\//);

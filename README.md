@@ -1,4 +1,4 @@
-🌐 [Português (Brasil)](README.pt_BR.md) | [Español](README.es.md)
+🌐 [Português (Brasil)](README.pt_BR.md) | [Español](README.es.md) | [中文](README.zh.md)
 
 # Agentic Workflows Workshop
 
