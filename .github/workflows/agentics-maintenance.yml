@@ -370,6 +370,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-activity-report-logs-${{ github.repository }}-
             ${{ runner.os }}-activity-report-logs-
+
       - name: Download activity report logs
         timeout-minutes: 20
         shell: bash
@@ -377,7 +378,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_AW_CMD_PREFIX: gh aw
         run: |
-          set +e
           mkdir -p ./.cache/gh-aw/activity-report-logs
           ${GH_AW_CMD_PREFIX} logs \
             --repo "${{ github.repository }}" \
@@ -385,14 +385,10 @@ jobs:
             --count 100 \
             --format markdown \
             > ./.cache/gh-aw/activity-report-logs/report.md
-          exit_code=$?
-          echo "gh aw logs exit code: $exit_code"
-          ls -l ./.cache/gh-aw/activity-report-logs
-          exit $exit_code
+          echo "--- Directory listing ---"
+          ls -lh ./.cache/gh-aw/activity-report-logs
 
-      - name: List generated report
-        run: |
-          echo "Listing ./.cache/gh-aw/activity-report-logs:" && ls -l ./.cache/gh-aw/activity-report-logs
+      - name: Save activity report logs cache
         if: ${{ always() }}
         uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
