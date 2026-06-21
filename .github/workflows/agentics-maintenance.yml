@@ -377,6 +377,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_AW_CMD_PREFIX: gh aw
         run: |
+          set +e
           mkdir -p ./.cache/gh-aw/activity-report-logs
           ${GH_AW_CMD_PREFIX} logs \
             --repo "${{ github.repository }}" \
@@ -384,6 +385,10 @@ jobs:
             --count 100 \
             --format markdown \
             > ./.cache/gh-aw/activity-report-logs/report.md
+          exit_code=$?
+          echo "gh aw logs exit code: $exit_code"
+          ls -l ./.cache/gh-aw/activity-report-logs
+          exit $exit_code
 
       - name: List generated report
         run: |
