@@ -377,15 +377,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_AW_CMD_PREFIX: gh aw
         run: |
+          mkdir -p ./.cache/gh-aw/activity-report-logs
           ${GH_AW_CMD_PREFIX} logs \
             --repo "${{ github.repository }}" \
             --start-date -1w \
             --count 100 \
-            --output ./.cache/gh-aw/activity-report-logs \
             --format markdown \
             > ./.cache/gh-aw/activity-report-logs/report.md
 
-      - name: Save activity report logs cache
+      - name: List generated report
+        run: |
+          echo "Listing ./.cache/gh-aw/activity-report-logs:" && ls -l ./.cache/gh-aw/activity-report-logs
         if: ${{ always() }}
         uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
